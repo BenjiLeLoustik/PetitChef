@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:petit_chef/widgets/partials/header.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -11,10 +12,7 @@ class HomePage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
 
-          Container(
-            color: Colors.red,
-            height: 60,
-          ),
+          Header(),
 
           Expanded(
             child: SingleChildScrollView(

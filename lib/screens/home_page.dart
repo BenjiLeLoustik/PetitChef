@@ -35,24 +35,30 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Header(),
+    return Material(
+      color: Color(0xFFF9F9F9),
+      child: SafeArea(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Header(),
 
-          Expanded(
-            child: SingleChildScrollView(
-              child: Padding(
-                padding: EdgeInsets.all(10),
-                child: _buildPageContent(),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: EdgeInsets.all(10),
+                  child: _buildPageContent(),
+                ),
               ),
             ),
-          ),
 
-          Footer(onItemSelected: onFooterItemSelected, activeLabel: activePage),
-        ],
+            Footer(
+              onItemSelected: onFooterItemSelected,
+              activeLabel: activePage,
+            ),
+          ],
+        ),
       ),
     );
   }

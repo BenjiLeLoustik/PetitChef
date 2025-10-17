@@ -5,6 +5,8 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text('Screen : HomePage');
+    return SafeArea(
+      child: Text('HomePage')
+    );
   }
 }

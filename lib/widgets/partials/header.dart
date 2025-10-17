@@ -21,7 +21,33 @@ class Header extends StatelessWidget {
             ),
           ),
           SizedBox(width: 20),
-          Expanded(child: Container(height: 50, width: 50, color: Colors.red)),
+          Expanded(
+            child: Container(
+              height: 50,
+              alignment: Alignment.center,
+              child: TextField(
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 0),
+                  hintText: 'Rechercher...',
+                  hintStyle: TextStyle(
+                    color: Color(0xFF8E8E8E)
+                  ),
+                  filled: true,
+                  fillColor: Colors.white,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide.none
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide.none
+                  ),
+                  hoverColor: Colors.white,
+                  suffixIcon: Icon(Icons.search)
+                ),
+              )
+            )
+          ),
         ],
       ),
     );

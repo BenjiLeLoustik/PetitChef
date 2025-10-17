@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:petit_chef/screens/home_page.dart';
 
 void main() {
   runApp(const App());
@@ -12,7 +13,10 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Petit Chef',
-      home: const Text('Petit Chef'),
+      home: Scaffold(
+        backgroundColor: Color(0xFFF9F9F9),
+        body: HomePage()
+      ),
     );
   }
 }

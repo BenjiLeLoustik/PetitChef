@@ -14,6 +14,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: 'Petit Chef',
       home: Scaffold(
+        backgroundColor: Color(0xFFF9F9F9),
         body: HomePage()
       ),
     );

@@ -20,11 +20,16 @@ class _HomePageState extends State<HomePage> {
 
   Widget _buildPageContent() {
     switch (activePage) {
-      case 'Home': return const Text('Bienvenue sur HomePage');
-      case 'Search': return const Text('Rechercher une recette');
-      case 'List': return const Text('Votre liste');
-      case 'Profile': return const Text('Votre profil');
-      default: return const Text('Bienvenue sur la HomePage');
+      case 'Home':
+        return const Text('Bienvenue sur HomePage');
+      case 'Search':
+        return const Text('Rechercher une recette');
+      case 'List':
+        return const Text('Votre liste');
+      case 'Profile':
+        return const Text('Votre profil');
+      default:
+        return const Text('Bienvenue sur la HomePage');
     }
   }
 
@@ -39,7 +44,10 @@ class _HomePageState extends State<HomePage> {
 
           Expanded(
             child: SingleChildScrollView(
-                child: _buildPageContent()
+              child: Padding(
+                padding: EdgeInsets.all(10),
+                child: _buildPageContent(),
+              ),
             ),
           ),
 

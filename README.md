@@ -9,35 +9,6 @@ Application mobile Flutter pour explorer et gérer vos recettes favorites.
 - **Gestion des favoris** : Ajoutez et retirez facilement vos recettes préférées
 - **Navigation intuitive** : Menu de navigation entre Home, Search, List et Profile
 
-## 🏗️ Structure du projet
-
-```
-lib/
-├── models/
-│   ├── recipe.dart
-│   ├── favorite_recipe.dart
-│   └── category.dart
-├── screens/
-│   ├── home_page.dart
-│   └── recipe_page.dart
-└── widgets/
-    └── partials/
-        ├── header.dart
-        ├── footer.dart
-        └── ...
-```
-
-## 🔧 Modèles de données
-
-### Recipe
-Contient les informations complètes d'une recette :
-- `id`, `name`, `image`, `recipe`, `level`, `category`, `time`, `date`
-
-### FavoriteRecipe
-Gère les recettes favorites avec :
-- `id`, `name`, `image`
-- Fonctions : `isFavorite()`, `toggleFavorite()`, `mockFavorites()`
-
 ## 🚀 Installation
 
 ```bash

@@ -1,20 +1,14 @@
 import 'package:flutter/material.dart';
 
-class Footer extends StatefulWidget {
-  const Footer({super.key});
+class Footer extends StatelessWidget {
+  final Function(String) onItemSelected;
+  final String activeLabel;
 
-  @override
-  State<Footer> createState() => _FooterState();
-}
-
-class _FooterState extends State<Footer> {
-  String activeLabel = 'Home';
-
-  void setActive(String label) {
-    setState((){
-      activeLabel = label;
-    });
-  }
+  const Footer({
+    super.key,
+    required this.onItemSelected,
+    required this.activeLabel
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -29,25 +23,25 @@ class _FooterState extends State<Footer> {
             label: 'Home',
             icon: Icons.home_rounded,
             isActive: activeLabel == 'Home',
-            onTap: () => setActive('Home'),
+            onTap: () => onItemSelected('Home'),
           ),
           FooterButton(
             label: 'Recherche',
             icon: Icons.search,
             isActive: activeLabel == 'Search',
-            onTap: () => setActive('Search'),
+            onTap: () => onItemSelected('Search'),
           ),
           FooterButton(
             label: 'Liste',
             icon: Icons.shopping_cart,
             isActive: activeLabel == 'List',
-            onTap: () => setActive('List'),
+            onTap: () => onItemSelected('List'),
           ),
           FooterButton(
             label: 'Profil',
             icon: Icons.account_circle,
             isActive: activeLabel == 'Profile',
-            onTap: () => setActive('Profile'),
+            onTap: () => onItemSelected('Profile'),
           ),
         ],
       ),

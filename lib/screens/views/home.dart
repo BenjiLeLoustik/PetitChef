@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:petit_chef/widgets/category_button.dart';
+import 'package:petit_chef/widgets/favorite_recipe_button.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -75,7 +76,8 @@ class _HomeState extends State<Home> {
         Container(
           padding: EdgeInsets.symmetric(vertical: 15, horizontal: 0),
           width: double.infinity,
-          child: Text('Recettes favorites', style: TextStyle(fontWeight: FontWeight.bold)),
+          child: Text('Recettes favorites',
+              style: TextStyle(fontWeight: FontWeight.bold)),
         ),
         Container(
           width: double.infinity,
@@ -106,94 +108,14 @@ class _HomeState extends State<Home> {
         Container(
           padding: EdgeInsets.symmetric(vertical: 20, horizontal: 0),
           width: double.infinity,
-          child: Text('Recettes disponibles', style: TextStyle(fontWeight: FontWeight.bold)),
+          child: Text('Recettes disponibles',
+              style: TextStyle(fontWeight: FontWeight.bold)),
         ),
         Column(
           children: [
-
           ],
         ),
       ],
-    );
-  }
-}
-
-class FavoriteRecipeButton extends StatefulWidget {
-  final String id;
-  final String name;
-  final String? image;
-  final bool isActive;
-  final VoidCallback onTap;
-
-  const FavoriteRecipeButton({
-    super.key,
-    required this.id,
-    required this.name,
-    this.image,
-    required this.isActive,
-    required this.onTap,
-  });
-
-  @override
-  State<FavoriteRecipeButton> createState() => _FavoriteRecipeButtonState();
-}
-
-class _FavoriteRecipeButtonState extends State<FavoriteRecipeButton> {
-  bool isHovered = false;
-
-  @override
-  Widget build(BuildContext context) {
-    final Color borderColor = widget.isActive
-        ? Colors.orange
-        : isHovered
-        ? Colors.grey[800]!
-        : Colors.grey[400]!;
-
-    return MouseRegion(
-      onEnter: (_) => setState(() => isHovered = true),
-      onExit: (_) => setState(() => isHovered = false),
-      child: GestureDetector(
-        onTap: (){
-          widget.onTap();
-          Navigator.of(context).pushNamed('/recipe/${widget.id}');
-        },
-        child: Container(
-          width: 100,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(100),
-                child: widget.image != null && widget.image!.isNotEmpty
-                    ? Image.asset(
-                  widget.image!,
-                  width: 80,
-                  height: 80,
-                  fit: BoxFit.cover,
-                )
-                    : Container(
-                  width: 80,
-                  height: 80,
-                  color: Colors.grey[300],
-                  child: Icon(Icons.no_food_outlined, size: 40, color: Colors.grey[400]),
-                ),
-              ),
-              SizedBox(height: 5),
-              Text(
-                widget.name,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  fontWeight: widget.isActive
-                      ? FontWeight.bold
-                      : FontWeight.normal,
-                  color: borderColor,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
     );
   }
 }

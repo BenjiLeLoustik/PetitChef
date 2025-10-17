@@ -1,16 +1,38 @@
-# petit_chef
+# 🍳 Petit Chef
 
-Découvrez des milliers de recettes savoureuses adaptées à tous les niveaux.
+Application mobile Flutter pour explorer et gérer vos recettes favorites.
 
-## Getting Started
+## 📱 Fonctionnalités
 
-This project is a starting point for a Flutter application.
+- **Explorer les recettes** : Parcourez une collection de recettes avec images et informations clés
+- **Détails des recettes** : Consultez les instructions complètes, le niveau de difficulté, le temps de préparation
+- **Gestion des favoris** : Ajoutez et retirez facilement vos recettes préférées
+- **Navigation intuitive** : Menu de navigation entre Home, Search, List et Profile
 
-A few resources to get you started if this is your first Flutter project:
+## 🚀 Installation
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+```bash
+# Cloner le projet
+git clone https://github.com/BenjiLeLoustik/PetitChef
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Installer les dépendances
+flutter pub get
+
+# Lancer l'application
+flutter run
+```
+
+## 📝 Utilisation
+
+1. Ouvrez l'application sur la page d'accueil
+2. Sélectionnez une recette pour voir ses détails
+3. Utilisez le bouton favori pour sauvegarder vos recettes préférées
+4. Naviguez entre les sections via le menu en bas d'écran
+
+## 🎨 Captures d'écran
+
+*À venir*
+
+## 📦 Dépendances
+
+- Flutter SDK

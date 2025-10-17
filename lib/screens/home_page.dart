@@ -17,8 +17,10 @@ class HomePage extends StatelessWidget {
           ),
 
           Expanded(
-            child: Container(
-              color: Colors.blue
+            child: SingleChildScrollView(
+              child: Column(
+                children: [],
+              )
             ),
           ),
 

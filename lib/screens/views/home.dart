@@ -147,6 +147,12 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    final List<Map<String, String>> filteredRecipes = activeCategory == 'Tout'
+        ? recipes
+        : recipes
+              .where((recipe) => recipe['category'] == activeCategory)
+              .toList();
+
     return Column(
       children: [
         Container(
@@ -210,17 +216,27 @@ class _HomeState extends State<Home> {
           ),
         ),
         Column(
-          children: recipes.map((recipe) {
-            return RecipeCard(
-              id: recipe['id']!,
-              name: recipe['name']!,
-              image: recipe['image'],
-              level: recipe['level']!,
-              category: recipe['category']!,
-              time: recipe['time']!,
-              date: recipe['date']!,
-            );
-          }).toList(),
+          children: filteredRecipes.isNotEmpty
+              ? filteredRecipes.map((recipe) {
+                  return RecipeCard(
+                    id: recipe['id']!,
+                    name: recipe['name']!,
+                    image: recipe['image'],
+                    level: recipe['level']!,
+                    category: recipe['category']!,
+                    time: recipe['time']!,
+                    date: recipe['date']!,
+                  );
+                }).toList()
+              : [
+                  Padding(
+                    padding: const EdgeInsets.all(20),
+                    child: Text(
+                      "Aucune recette trouvée pour cette catégorie.",
+                      style: TextStyle(fontSize: 16, color: Colors.grey[600]),
+                    ),
+                  ),
+                ],
         ),
       ],
     );

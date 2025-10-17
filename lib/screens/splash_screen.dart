@@ -39,6 +39,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFF9F9F9),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -51,7 +52,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
             SizedBox(height: 20),
             SizedBox(
               width: 200,
-              child: LinearProgressIndicator(value: progress)
+              child: LinearProgressIndicator(value: progress, color: Colors.orange, backgroundColor: Color(0xFFF1F1F1))
             )
           ],
         )

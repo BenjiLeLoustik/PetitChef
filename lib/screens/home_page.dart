@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:petit_chef/screens/views/home.dart';
 import 'package:petit_chef/widgets/partials/footer.dart';
 import 'package:petit_chef/widgets/partials/header.dart';
 
@@ -21,7 +22,7 @@ class _HomePageState extends State<HomePage> {
   Widget _buildPageContent() {
     switch (activePage) {
       case 'Home':
-        return const Text('Bienvenue sur HomePage');
+        return Home();
       case 'Search':
         return const Text('Rechercher une recette');
       case 'List':

@@ -13,8 +13,39 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Petit Chef',
-      home: SplashScreen(),
       debugShowCheckedModeBanner: false,
+      initialRoute: '/',
+      onGenerateRoute: (settings) {
+        final uri = Uri.parse(settings.name!);
+
+        if (uri.path == '/') {
+          return MaterialPageRoute(builder: (_) => const SplashScreen());
+        }
+
+        if (uri.path == '/recipe/add') {
+          return MaterialPageRoute(builder: (_) => const Text('Ajout recette'));
+        }
+
+        if (uri.pathSegments.length == 3 &&
+            uri.pathSegments[0] == 'recipe' &&
+            uri.pathSegments[1] == 'remove') {
+          final id = uri.pathSegments[2];
+          return MaterialPageRoute(
+            builder: (_) =>
+                Text('Suppression recette ${id}'), //RemoveRecipeScreen(id: id),
+          );
+        }
+
+        if (uri.pathSegments.length == 2 && uri.pathSegments[0] == 'recipe') {
+          final id = uri.pathSegments[1];
+          return MaterialPageRoute(
+            builder: (_) =>
+                Text('Affichage recette ${id}'), //RecipeScreen(id: id),
+          );
+        }
+
+        return MaterialPageRoute(builder: (_) => Scaffold(body: Center(child: Text('Page Not Found ${settings.name}'))));
+      },
     );
   }
 }

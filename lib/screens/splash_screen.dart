@@ -10,7 +10,8 @@ class SplashScreen extends StatefulWidget {
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderStateMixin {
+class _SplashScreenState extends State<SplashScreen>
+    with SingleTickerProviderStateMixin {
   double progress = 0.0;
   late Timer timer;
 
@@ -22,9 +23,9 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
         progress += 0.01;
         if (progress >= 1.0) {
           t.cancel();
-          Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (_) => HomePage())
-          );
+          Navigator.of(
+            context,
+          ).pushReplacement(MaterialPageRoute(builder: (_) => HomePage()));
         }
       });
     });
@@ -44,19 +45,29 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('images/petitchef_logo.png', width: 150 ),
+            Image.asset('images/petitchef_logo.png', width: 150),
             SizedBox(height: 20),
-            Text('Bienvenue sur PetitChef !', style: TextStyle(
-              fontSize: 20
-            )),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              alignment: Alignment.center,
+              child: Text(
+                'Découvrez des milliers de recettes savoureuses adaptées à tous les niveaux !',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+              ),
+            ),
             SizedBox(height: 20),
             SizedBox(
               width: 200,
-              child: LinearProgressIndicator(value: progress, color: Colors.orange, backgroundColor: Color(0xFFF1F1F1))
-            )
+              child: LinearProgressIndicator(
+                value: progress,
+                color: Colors.orange,
+                backgroundColor: Color(0xFFF1F1F1),
+              ),
+            ),
           ],
-        )
-      )
+        ),
+      ),
     );
   }
 }

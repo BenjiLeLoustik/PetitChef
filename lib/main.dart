@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:petit_chef/screens/recipe_page.dart';
 import 'package:petit_chef/screens/splash_screen.dart';
 
 void main() {
@@ -38,13 +39,14 @@ class App extends StatelessWidget {
 
         if (uri.pathSegments.length == 2 && uri.pathSegments[0] == 'recipe') {
           final id = uri.pathSegments[1];
-          return MaterialPageRoute(
-            builder: (_) =>
-                Text('Affichage recette ${id}'), //RecipeScreen(id: id),
-          );
+          return MaterialPageRoute(builder: (_) => RecipePage(id: id));
         }
 
-        return MaterialPageRoute(builder: (_) => Scaffold(body: Center(child: Text('Page Not Found ${settings.name}'))));
+        return MaterialPageRoute(
+          builder: (_) => Scaffold(
+            body: Center(child: Text('Page Not Found ${settings.name}')),
+          ),
+        );
       },
     );
   }

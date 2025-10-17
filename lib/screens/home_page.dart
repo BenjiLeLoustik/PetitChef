@@ -4,7 +4,8 @@ import 'package:petit_chef/widgets/partials/footer.dart';
 import 'package:petit_chef/widgets/partials/header.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  final String initialPage;
+  const HomePage({super.key, this.initialPage = 'Home'});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -12,6 +13,12 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   String activePage = 'Home';
+
+  @override
+  void initState() {
+    super.initState();
+    activePage = widget.initialPage;
+  }
 
   void onFooterItemSelected(String label) {
     setState(() {
